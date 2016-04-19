@@ -13,13 +13,13 @@ describe('loader', function() {
     expect(result).to.eq('line1;\nrequire("foo/bar");\nline2')
   })
 
-  it('allows loader info in query parameters', function() {
+  it('allows forcing a relative path', function() {
     const context = {
-      query: '?'+queryString.stringify({loader: 'foobar'})
+      query: '?'+queryString.stringify({relative: true})
     }
     const result = loader.call(context, 'line1;\n//= require foo/bar\nline2')
 
-    expect(result).to.eq('line1;\nrequire("foobar!foo/bar");\nline2')
+    expect(result).to.eq('line1;\nrequire("./foo/bar");\nline2')
   })
 
   it('ignores other query parameters', function() {
