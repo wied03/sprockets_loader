@@ -30,4 +30,22 @@ describe('loader', function() {
 
     expect(result).to.eq('line1;\nrequire("foo/bar");\nline2')
   })
+
+  it('allows forcing a loader', function() {
+    const context = {
+      query: '?'+queryString.stringify({loader: 'script'})
+    }
+    const result = loader.call(context, 'line1;\n//= require foo/bar\nline2')
+
+    expect(result).to.eq('line1;\nrequire("script!foo/bar");\nline2')
+  })
+
+  it('allows forcing a loader and using a relative path', function() {
+    const context = {
+      query: '?'+queryString.stringify({loader: 'script', relative: true})
+    }
+    const result = loader.call(context, 'line1;\n//= require foo/bar\nline2')
+
+    expect(result).to.eq('line1;\nrequire("script!./foo/bar");\nline2')
+  })
 })

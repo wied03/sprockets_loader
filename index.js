@@ -3,7 +3,15 @@
 const loaderUtils = require('loader-utils')
 
 function transformLine(queryOptions, line) {
-  const replaceString = queryOptions && queryOptions.relative ? `./$1` : '$1'
+  let replaceString = '$1'
+  if (queryOptions) {
+    if (queryOptions.relative) {
+      replaceString = './$1'
+    }
+    if (queryOptions.loader) {
+      replaceString = `${queryOptions.loader}!${replaceString}`
+    }
+  }
   return line.replace(/\/\/\= require (.*)/, `require("${replaceString}");`)
 }
 
