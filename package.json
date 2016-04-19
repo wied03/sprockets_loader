@@ -1,0 +1,15 @@
+{
+  "name": "sprockets_loader",
+  "version": "1.0.0",
+  "description": "Transforms sprockets require statements into Webpack ones",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "wied03",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
