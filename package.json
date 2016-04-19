@@ -1,5 +1,5 @@
 {
-  "name": "sprockets_loader",
+  "name": "sprockets-loader",
   "version": "1.0.0",
   "description": "Transforms sprockets require statements into Webpack ones",
   "main": "index.js",
