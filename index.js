@@ -1,7 +1,7 @@
 'use strict'
 
 function transformLine(line) {
-  return line.replace(/\/\/\=require (.*)/, 'require("$1");')
+  return line.replace(/\/\/\= require (.*)/, 'require("$1");')
 }
 
 module.exports = function(source) {

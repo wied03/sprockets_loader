@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Transforms sprockets require statements into Webpack ones",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "mocha"
   },
